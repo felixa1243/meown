@@ -1,5 +1,6 @@
 export const ROUTES = {
     auth: {
+        root:"/auth",
         login: "/auth/login"
     },
     package: {
