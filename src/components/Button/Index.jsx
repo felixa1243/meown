@@ -1,12 +1,24 @@
 const Button = ({className, children, ...props}) => {
-    const classes = [className].filter(c => c)
+    let bgColor;
+    switch (props.variants.toUpperCase()){
+        case 'PRIMARY':
+           bgColor =  '-brand-primary'
+            break;
+        case 'SECONDARY':
+            bgColor = '-brand-secondary'
+            break;
+    }
+    const classes = [className+' ',` bg${bgColor}`].filter(c => c)
     return (
         <button
-            className={"px-4 py-3 bg-[#FF74B1] text-white rounded-xl w-full " + classes}
+            className={"px-4 py-3 text-white rounded-xl w-full " + classes}
             {...props}
         >
             {children}
         </button>
     )
+}
+Button.defaultProps = {
+    variants:'PRIMARY'
 }
 export default Button
