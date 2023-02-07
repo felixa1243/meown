@@ -7,6 +7,9 @@ const Button = ({className, children, ...props}) => {
         case 'SECONDARY':
             bgColor = '-brand-secondary'
             break;
+        case 'WHITE':
+            bgColor = '-white'
+            break;
     }
     const classes = [className+' ',` bg${bgColor}`].filter(c => c)
     return (

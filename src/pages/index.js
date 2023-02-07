@@ -1,5 +1,7 @@
 export {default as Login} from './Login/Index'
 export {default as Products} from './Products/Index'
+export {default as User} from './User/Index'
+export {default as Order} from './Order/Index'
 export {default as Unauthorized} from './exceptions/Unauthorized/Index'
 export {default as ProtectedRoute} from './ProtectedRoute/Index'
 export {default as NotFound} from './exceptions/NotFound/Index'

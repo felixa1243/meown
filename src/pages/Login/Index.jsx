@@ -10,12 +10,14 @@ import useFetchMutation from "../../hook/useFetchMutation";
 import {login} from "../../service/AuthService";
 import {setToken} from "../../utils/token";
 import {setUser} from "../../utils/userInfo";
+import loadingAnimation from "../../assets/animation/loading.json";
+import Lottie from "lottie-react";
 
-const Login = (props) => {
+const Login = () => {
     const [loginInfo, dispatch] = useReducer(loginReducer, state)
     const navigate = useNavigate()
-    const [authFail, loginLoading, loginMutation] = useFetchMutation(login, (data) =>{
-        const {data:datas} = data
+    const [authFail, loginLoading, loginMutation] = useFetchMutation(login, (data) => {
+        const {data: datas} = data
         setToken(datas.token)
         setUser(JSON.stringify(datas.data))
         navigate(ROUTES.package.list)
@@ -41,33 +43,38 @@ const Login = (props) => {
                 <div className={"w-[534px] h-full bg-white rounded-r-xl flex justify-center items-center"}>
                     <div className={"w-full px-5 flex justify-center flex-col items-center"}>
                         <h2 className={"text-2xl font-bold"}>Login</h2>
-                        <form
-                            className={"flex flex-col gap-2 mt-5 w-[70%] items-center"}
-                            onSubmit={onSubmit}
-                        >
-                            {
-                                formList.map((item) => {
-                                    return (
-                                        <TextInput label={item.label}
-                                                   onChange={(e) => dispatch(item.onChange(e.target.value))}
-                                                   key={item.label}
-                                                   type={item.type}
-                                        />
+                        {loginLoading && (
+                            <Lottie animationData={loadingAnimation} className={'h-[60%]'}/>
+                        )}
+                        {!loginLoading && (
+                            <form
+                                className={"flex flex-col gap-2 mt-5 w-[70%] items-center"}
+                                onSubmit={onSubmit}
+                            >
+                                {
+                                    formList.map((item) => {
+                                        return (
+                                            <TextInput label={item.label}
+                                                       onChange={(e) => dispatch(item.onChange(e.target.value))}
+                                                       key={item.label}
+                                                       type={item.type}
+                                            />
+                                        )
+                                    })
+                                }
+                                {(authFail && authFail.code === "ERR_BAD_REQUEST") && (
+                                    <p className={"text-md text-rose-500 self-start"}>Login error: User not found</p>
+                                )}
+                                {
+                                    (authFail && authFail.code !== "ERR_BAD_REQUEST") && (
+                                        <p className={"text-md text-danger self-start"}>Login error: {authFail.message}</p>
                                     )
-                                })
-                            }
-                            {(authFail && authFail.code === "ERR_BAD_REQUEST") && (
-                                <p className={"text-md text-rose-500 self-start"}>Login error: User not found</p>
-                            )}
-                            {
-                                (authFail && authFail.code !== "ERR_BAD_REQUEST") && (
-                                <p className={"text-md text-danger self-start"}>Login error: {authFail.message}</p>
-                                )
-                            }
-                            <Button className={"mt-3"}
-                                    type={"submit"}
-                                    disabled={loginLoading||invalidSubmit}>Login</Button>
-                        </form>
+                                }
+                                <Button className={"mt-3"}
+                                        type={"submit"}
+                                        disabled={loginLoading || invalidSubmit}>Login</Button>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>
