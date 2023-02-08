@@ -1,6 +1,10 @@
 import {Button, Card} from "../../../../components/Index";
+import {ROUTES} from "../../../../constant/ROUTES";
+import {useNavigate} from "react-router-dom";
 
 const RenderComponent = ({list,...props}) => {
+    const navigate = useNavigate()
+
     return (
         <div className={'p-5 flex flex-col gap-3'} {...props}>
             {
@@ -16,7 +20,7 @@ const RenderComponent = ({list,...props}) => {
                                     </div>
                                 </div>
                                 <div className={'w-1/2 flex justify-end'}>
-                                    <Button className={'w-[100px] font-bold'}>Details</Button>
+                                    <Button className={'w-[100px] font-bold'} onClick={() => navigate(`${ROUTES.user.byId}/${item.userId}`)}>Details</Button>
                                 </div>
                             </div>
                         </Card>

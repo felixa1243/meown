@@ -1,8 +1,18 @@
 import './assets/style.css'
 import {Route, Routes} from "react-router-dom";
 import {ROUTES} from "./constant/ROUTES";
-import {Home, Login, NotFound, Order, ProductDetail, Products, ProtectedRoute, User} from "./pages";
-import Detail from "./pages/Detail/Index";
+import {
+    Home,
+    Login,
+    NotFound,
+    Order,
+    OrderDetail,
+    ProductDetail,
+    Products,
+    ProtectedRoute,
+    User,
+    UserDetail
+} from "./pages";
 
 function App() {
     return (
@@ -14,13 +24,22 @@ function App() {
                            element={<Products/>}
                            index={true}
                     />
+
                     <Route path={`${ROUTES.package.byId}/:id`} element={<ProductDetail/>}/>
+
                     <Route path={ROUTES.user.list}
-                           element={<User/>}/>
-                    <Route path={ROUTES.user.byId}
+                           element={<User/>}
+                           index={true}
                     />
+                    <Route path={`${ROUTES.user.byId}/:id`} element={<UserDetail/>}/>
+
                     <Route path={ROUTES.transaction.list}
-                           element={<Order/>}/>
+                           element={<Order/>}
+                           index={true}
+                    />
+
+                    <Route path={`${ROUTES.transaction.byId}/:id`} element={<OrderDetail/>}/>
+
                 </Route>
                 <Route path={ROUTES.auth.login} element={<Login/>} index={true}/>
                 <Route path={"*"} element={<NotFound/>}/>

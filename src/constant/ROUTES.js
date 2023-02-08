@@ -6,7 +6,7 @@ export const ROUTES = {
     },
     package: {
         list: "/packages",
-        byId: "/packages",
+        byId: "/packages/:id",
         add: "/packages/add",
         edit: "/packages/edit/:id"
     },
@@ -17,8 +17,8 @@ export const ROUTES = {
     },
     user: {
         list: "/users",
-        byId: "/users/:id",
-        edit: "/users/edit/:id"
+        byId: "/user/:id",
+        edit: "/user/edit/:id"
     },
     transaction: {
         list: "/transactions",

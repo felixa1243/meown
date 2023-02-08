@@ -1,6 +1,5 @@
 import {useNavigate, useParams} from "react-router-dom";
 import useFetch from "../../hook/useFetch";
-import {getPackagesById} from "../../service/PackageService";
 import loadingAnimation from '../../assets/animation/loading.json'
 import Lottie from "lottie-react";
 import {TiArrowBack} from "react-icons/ti";
@@ -8,7 +7,7 @@ import {TiArrowBack} from "react-icons/ti";
 const Detail = (RenderComponent, opts) => {
     const InnerComponent = () => {
         const {id} = useParams()
-        const [data, error, loading] = useFetch(getPackagesById(opts.getService(id)))
+        const [data, error, loading] = useFetch(opts.getService(id))
         const navigate = useNavigate()
         return (
             <div className={'bg-brand-secondary h-screen p-5'}>

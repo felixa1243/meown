@@ -15,7 +15,8 @@ const PackageDetails = ({data}) => {
                 </div>
                 <div className={'w-1/2 flex flex-col'}>
                     {
-                        data && Object.keys(data?.data).map((k,index) => {
+                        data && Object.keys(data?.data).map((k, index) => {
+                            console.log("det pack", data?.data)
                             return (
                                 <p className={'font-bold'} key={index}>: {data?.data[k]}</p>
                             )
@@ -28,5 +29,5 @@ const PackageDetails = ({data}) => {
 }
 export default Detail(PackageDetails, {
     getService: getPackagesById,
-    back:ROUTES.package.list
+    back: ROUTES.package.list
 });

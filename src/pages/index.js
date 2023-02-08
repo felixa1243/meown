@@ -1,6 +1,8 @@
 export {default as Login} from './Login/Index'
 export {default as Products} from './List/Products/Index'
 export {default as ProductDetail} from './Detail/Packages/Index'
+export {default as UserDetail} from './Detail/Users/Index'
+export {default as OrderDetail} from './Detail/Orders/Index'
 export {default as User} from './List/User/Index'
 export {default as Order} from './List/Order/Index'
 export {default as Unauthorized} from './exceptions/Unauthorized/Index'

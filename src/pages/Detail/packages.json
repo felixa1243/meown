@@ -1,0 +1,12 @@
+{
+  "status": "200",
+  "message": "success",
+  "data": {
+    "userId": "U01",
+    "userName": "Ujang",
+    "address": {
+      "city": "Bandung"
+    },
+    "phoneNumber": "081234567890"
+  }
+}
