@@ -4,7 +4,7 @@ import logo from '../../assets/image/logo.svg'
 const Navbar = (props) => {
     const links = [{
         link: ROUTES.package.list,
-        text: 'Package'
+        text: 'Packages'
     }, {
         link: ROUTES.user.list,
         text: 'User'

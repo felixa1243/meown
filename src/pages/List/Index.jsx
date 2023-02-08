@@ -1,7 +1,8 @@
-import useFetch from "../../../../hook/useFetch";
+import useFetch from "../../hook/useFetch";
 import Lottie from "lottie-react";
-import empty from '../../../../assets/animation/empty.json'
-import loadingAnimation from '../../../../assets/animation/loading.json'
+import empty from '../../assets/animation/empty.json'
+import loadingAnimation from '../../assets/animation/loading.json'
+import {useNavigate} from "react-router-dom";
 const ListHoc = (ListComp, opts) => {
     const InnerComponent = () => {
         const [data, , loading] = useFetch(opts.service())

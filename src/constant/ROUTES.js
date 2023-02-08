@@ -6,7 +6,7 @@ export const ROUTES = {
     },
     package: {
         list: "/packages",
-        byId: "/packages/:id",
+        byId: "/packages",
         add: "/packages/add",
         edit: "/packages/edit/:id"
     },

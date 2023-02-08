@@ -22,13 +22,13 @@ const ProtectedRoute = () => {
         )
     }
     return (
-        <>
+        <div>
             <Navbar onLogout={()=>{
                 Logout()
                 setToken(null)
             }}/>
             <Outlet/>
-        </>
+        </div>
     )
 }
 export default ProtectedRoute
