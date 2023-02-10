@@ -6,22 +6,23 @@ export const ROUTES = {
     },
     package: {
         list: "/packages",
-        byId: "/packages/:id",
+        byId: "/packages",
         add: "/packages/add",
-        edit: "/packages/edit/:id"
+        edit: "/packages/edit"
     },
     cats: {
         list: "/admin/cats",
-        byId: "/cats/:id",
-        edit: "/cats/edit/:id"
+        byId: "/cats",
+        edit: "/cats/edit"
     },
     user: {
         list: "/users",
-        byId: "/user/:id",
-        edit: "/user/edit/:id"
+        byId: "/user",
+        edit: "/user/edit"
     },
     transaction: {
         list: "/transactions",
-        byId: "/transactions/:id"
+        byId: "/transactions",
+        edit:"/edit/transactions"
     }
 }

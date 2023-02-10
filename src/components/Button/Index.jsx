@@ -1,20 +1,29 @@
 const Button = ({className, children, ...props}) => {
     let bgColor;
-    switch (props.variants.toUpperCase()){
+    switch (props.variants.toUpperCase()) {
         case 'PRIMARY':
-           bgColor =  '-brand-primary'
+            bgColor = 'bg-brand-primary'
             break;
         case 'SECONDARY':
-            bgColor = '-brand-secondary'
+            bgColor = 'bg-brand-secondary'
             break;
-        case 'WHITE':
-            bgColor = '-white'
+        case 'GRAY':
+            bgColor = 'bg-gray-500'
+            break;
+        case 'SUCCESS':
+            bgColor = 'bg-emerald-600'
+            break;
+        case 'INFO':
+            bgColor = 'bg-blue-600'
+            break;
+        case 'DANGER':
+            bgColor = 'bg-danger'
             break;
     }
-    const classes = [className+' ',` bg${bgColor}`].filter(c => c)
+    const classes = [className + ' ', ` ${bgColor}`].filter(c => c)
     return (
         <button
-            className={"px-4 py-3 text-white rounded-xl w-full " + classes}
+            className={"px-4 py-3 text-white rounded-xl flex justify-start " + classes}
             {...props}
         >
             {children}
@@ -22,6 +31,6 @@ const Button = ({className, children, ...props}) => {
     )
 }
 Button.defaultProps = {
-    variants:'PRIMARY'
+    variants: 'PRIMARY'
 }
 export default Button

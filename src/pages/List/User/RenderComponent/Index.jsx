@@ -1,5 +1,5 @@
 import {Button, Card} from "../../../../components/Index";
-import {ROUTES} from "../../../../constant/ROUTES";
+import {ROUTES} from "../../../../constant/Routing/ROUTES";
 import {useNavigate} from "react-router-dom";
 
 const RenderComponent = ({list,...props}) => {

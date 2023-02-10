@@ -1,5 +1,5 @@
 import {Navigate} from "react-router-dom";
-import {ROUTES} from "../../constant/ROUTES";
+import {ROUTES} from "../../constant/Routing/ROUTES";
 
 const Home = () => {
     if (!localStorage.getItem("TOKEN")) {

@@ -1,0 +1,15 @@
+export const ACTIONS_TYPE = {
+    packages: {
+        CHANGE_ID: 'CHANGE_ID',
+        CHANGE_NAME: 'CHANGE_NAME',
+        CHANGE_DESCRIPTION: 'CHANGE_DESCRIPTION',
+        CHANGE_PRICE: 'CHANGE_PRICE'
+    },
+    user: {
+        CHANGE_ID: 'CHANGE_ID',
+        CHANGE_NAME: 'CHANGE_USER',
+        CHANGE_ADDRESS: 'CHANGE_ADDRESS',
+        CHANGE_CITY: 'CHANGE_CITY',
+        CHANGE_PHONE: 'CHANGE_PHONE'
+    }
+}

@@ -1,6 +1,6 @@
-const Card = ({children, className}) => {
+const Card = ({children, className,...props}) => {
     return (
-        <div className={`bg-white border border-[1px] `+className}>
+        <div className={`bg-white border border-[1px] `+className} {...props}>
             {children}
         </div>
     )

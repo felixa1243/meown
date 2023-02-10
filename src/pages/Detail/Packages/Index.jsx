@@ -1,11 +1,11 @@
 import Detail from "../Index";
 import {getPackagesById} from "../../../service/PackageService";
-import {Card} from "../../../components/Index";
-import {ROUTES} from "../../../constant/ROUTES";
+import {ROUTES} from "../../../constant/Routing/ROUTES";
+import {formatCurrency} from "../../../utils/currency";
 
 const PackageDetails = ({data}) => {
     return (
-        <Card className={'w-full rounded-lg p-5 font-bold font-poppins'}>
+        <div className={'w-full rounded-lg p-5 font-bold font-poppins'}>
             <div className={'flex'}>
                 <div className={'w-1/2 flex flex-col'}>
                     <p className={'font-bold'}>Id</p>
@@ -16,7 +16,11 @@ const PackageDetails = ({data}) => {
                 <div className={'w-1/2 flex flex-col'}>
                     {
                         data && Object.keys(data?.data).map((k, index) => {
-                            console.log("det pack", data?.data)
+                            if (index === 3) {
+                                return (
+                                    <p className={'font-bold'}>: {formatCurrency(data?.data.price)}</p>
+                                )
+                            }
                             return (
                                 <p className={'font-bold'} key={index}>: {data?.data[k]}</p>
                             )
@@ -24,10 +28,11 @@ const PackageDetails = ({data}) => {
                     }
                 </div>
             </div>
-        </Card>
+        </div>
     )
 }
 export default Detail(PackageDetails, {
     getService: getPackagesById,
-    back: ROUTES.package.list
+    back: ROUTES.package.list,
+    edit:ROUTES.package.edit+'/'
 });

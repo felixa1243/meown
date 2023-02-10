@@ -14,6 +14,11 @@ module.exports = {
             },
             fontFamily:{
                 poppins:['Poppins']
+            },
+            screens: {
+                'xs': {
+                    'raw': '(max-width:640px)'
+                }
             }
         },
     },

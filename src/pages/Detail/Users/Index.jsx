@@ -1,12 +1,11 @@
 import Detail from "../Index";
-import {Card} from "../../../components/Index";
-import {ROUTES} from "../../../constant/ROUTES";
+import {ROUTES} from "../../../constant/Routing/ROUTES";
 import {getUserById} from "../../../service/UserService";
 
 const UserDetails = ({data}) => {
-    // console.log(data)
+    console.log(data)
     return (
-        <Card className={'w-full rounded-lg p-5 p-5 font-bold font-poppins'}>
+        <div className={'w-full'}>
             <div className={'flex'}>
                 <div className={'q-1/2 flex flex-col'}>
                     <p className={'font-bold'}>Id</p>
@@ -36,11 +35,12 @@ const UserDetails = ({data}) => {
 
                 </div>
             </div>
-        </Card>
+        </div>
     )
 }
 
 export default Detail(UserDetails, {
     getService: getUserById,
-    back: ROUTES.user.list
+    back: ROUTES.user.list,
+    edit:ROUTES.user.edit+'/'
 });

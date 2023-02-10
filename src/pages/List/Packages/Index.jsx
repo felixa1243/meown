@@ -1,7 +1,7 @@
 import ListHoc from "../Index";
 import RenderComponent from "./RenderComponent/Index";
 import {getPackages} from "../../../service/PackageService";
-import {ROUTES} from "../../../constant/ROUTES";
+
 const Products = ({data}) => {
     return (
         <div className={'bg-brand-secondary h-screen bg-brand-secondary'}>

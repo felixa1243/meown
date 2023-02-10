@@ -1,12 +1,10 @@
 import Detail from "../Index";
-import {Card} from "../../../components/Index";
-import {ROUTES} from "../../../constant/ROUTES";
+import {ROUTES} from "../../../constant/Routing/ROUTES";
 import {getOrderById} from "../../../service/OrderService";
 
 const TransactionDetails = ({data}) => {
-    console.log("asdfgh ",data)
     return (
-        <Card className={'w-full rounded-lg p-5 p-5 font-bold font-poppins'}>
+        <div className={'w-full rounded-lg p-5 p-5 font-bold font-poppins'}>
             <div className={'flex'}>
                 <div className={'w-1/2 flex flex-col'}>
                     <p className={'font-bold'}>Transaction Id</p>
@@ -21,11 +19,12 @@ const TransactionDetails = ({data}) => {
                     <p>{data?.data.status.statusName}</p>
                 </div>
             </div>
-        </Card>
+        </div>
     )
 }
 
 export default Detail(TransactionDetails, {
     getService: getOrderById,
-    back: ROUTES.transaction.list
+    back: ROUTES.transaction.list,
+    edit:ROUTES.transaction.edit+'/'
 });
