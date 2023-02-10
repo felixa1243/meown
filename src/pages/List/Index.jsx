@@ -2,7 +2,8 @@ import useFetch from "../../hook/useFetch";
 import Lottie from "lottie-react";
 import empty from '../../assets/animation/empty.json'
 import loadingAnimation from '../../assets/animation/loading.json'
-import {useNavigate} from "react-router-dom";
+import AnimateTransition from "../../components/AnimateTransition/Index";
+
 const ListHoc = (ListComp, opts) => {
     const InnerComponent = () => {
         const [data, , loading] = useFetch(opts.service())
@@ -18,9 +19,11 @@ const ListHoc = (ListComp, opts) => {
                 }
                 {
                     data && data.data?.length > 0 ? (
-                        <ListComp
-                            data={data.data}
-                        />
+                        <AnimateTransition>
+                            <ListComp
+                                data={data.data}
+                            />
+                        </AnimateTransition>
                     ) : (
                         <div className={'w-full h-screen flex flex-col justify-center items-center'}>
                             <p className={'text-lg font-bold font-poppins text-brand-primary'}>Empty...</p>

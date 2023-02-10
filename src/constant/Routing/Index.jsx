@@ -1,6 +1,7 @@
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import {ROUTES} from "./ROUTES";
 import {
+    EditPackages,
     EditUser,
     Home,
     Login,
@@ -13,39 +14,42 @@ import {
     User,
     UserDetail
 } from "../../pages";
-import EditPackage from "../../pages/Edit/Packages/Index";
+import {AnimatePresence} from "framer-motion";
 
 const Routing = () => {
+    const location = useLocation()
     return (
-        <Routes>
-            <Route path={ROUTES.home} element={<Home/>}/>
-            <Route element={<ProtectedRoute/>}>
-                <Route path={ROUTES.package.list}
-                       element={<Packages/>}
-                       index={true}
-                />
-                <Route path={ROUTES.user.list}
-                       element={<User/>}
-                />
-                <Route path={`${ROUTES.package.byId}/:id`}
-                       element={<PackageDetail/>}/>
-                <Route path={`${ROUTES.package.edit}/:id`}
-                       element={<EditPackage/>}/>
-                <Route path={`${ROUTES.user.byId}/:id`}
-                       element={<UserDetail/>}/>
-                <Route path={`${ROUTES.user.edit}/:id`}
-                       element={<EditUser/>}
-                />
-                <Route path={ROUTES.transaction.list}
-                       element={<Order/>}
-                />
-                <Route path={`${ROUTES.transaction.byId}/:id`}
-                       element={<OrderDetail/>}/>
+        <AnimatePresence>
+            <Routes location={location} key={location.pathname}>
+                <Route path={ROUTES.home} element={<Home/>}/>
+                <Route element={<ProtectedRoute/>}>
+                    <Route path={ROUTES.package.list}
+                           element={<Packages/>}
+                           index={true}
+                    />
+                    <Route path={ROUTES.user.list}
+                           element={<User/>}
+                    />
+                    <Route path={`${ROUTES.package.byId}/:id`}
+                           element={<PackageDetail/>}/>
+                    <Route path={`${ROUTES.package.edit}/:id`}
+                           element={<EditPackages/>}/>
+                    <Route path={`${ROUTES.user.byId}/:id`}
+                           element={<UserDetail/>}/>
+                    <Route path={`${ROUTES.user.edit}/:id`}
+                           element={<EditUser/>}
+                    />
+                    <Route path={ROUTES.transaction.list}
+                           element={<Order/>}
+                    />
+                    <Route path={`${ROUTES.transaction.byId}/:id`}
+                           element={<OrderDetail/>}/>
 
-            </Route>
-            <Route path={ROUTES.auth.login} element={<Login/>} index={true}/>
-            <Route path={"*"} element={<NotFound/>}/>
-        </Routes>
+                </Route>
+                <Route path={ROUTES.auth.login} element={<Login/>} index={true}/>
+                <Route path={"*"} element={<NotFound/>}/>
+            </Routes>
+        </AnimatePresence>
     );
 }
 export default Routing

@@ -1,3 +1,5 @@
+import {motion} from "framer-motion";
+
 const Button = ({className, children, ...props}) => {
     let bgColor;
     switch (props.variants.toUpperCase()) {
@@ -22,12 +24,14 @@ const Button = ({className, children, ...props}) => {
     }
     const classes = [className + ' ', ` ${bgColor}`].filter(c => c)
     return (
-        <button
+        <motion.button
             className={"px-4 py-3 text-white rounded-xl flex justify-start " + classes}
+            whileHover={{scale: 1.15, transition: {damping: 20, type: "spring", stiffness: 300}}}
+            whileTap={{scale: 0.85, transition: {damping: 20, type: "spring", stiffness: 300}}}
             {...props}
         >
             {children}
-        </button>
+        </motion.button>
     )
 }
 Button.defaultProps = {

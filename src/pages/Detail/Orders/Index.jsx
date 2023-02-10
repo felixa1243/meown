@@ -1,6 +1,6 @@
 import Detail from "../Index";
 import {ROUTES} from "../../../constant/Routing/ROUTES";
-import {getOrderById} from "../../../service/OrderService";
+import {deleteOrder, getOrderById} from "../../../service/OrderService";
 
 const TransactionDetails = ({data}) => {
     return (
@@ -26,5 +26,6 @@ const TransactionDetails = ({data}) => {
 export default Detail(TransactionDetails, {
     getService: getOrderById,
     back: ROUTES.transaction.list,
-    edit:ROUTES.transaction.edit+'/'
+    edit: ROUTES.transaction.edit + '/',
+    deleteService: deleteOrder
 });

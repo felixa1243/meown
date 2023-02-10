@@ -1,6 +1,6 @@
 import Detail from "../Index";
 import {ROUTES} from "../../../constant/Routing/ROUTES";
-import {getUserById} from "../../../service/UserService";
+import {deleteUser, getUserById} from "../../../service/UserService";
 
 const UserDetails = ({data}) => {
     console.log(data)
@@ -17,7 +17,7 @@ const UserDetails = ({data}) => {
                     {
                         data && Object.keys(data?.data).map(
                             (k, index) => {
-                                if(index !== 2){
+                                if (index !== 2) {
                                     return (
                                         <p className={'font-bold'}
                                            key={index}>: {data?.data[k]}</p>
@@ -42,5 +42,6 @@ const UserDetails = ({data}) => {
 export default Detail(UserDetails, {
     getService: getUserById,
     back: ROUTES.user.list,
-    edit:ROUTES.user.edit+'/'
+    edit: ROUTES.user.edit + '/',
+    deleteService: deleteUser
 });

@@ -1,5 +1,5 @@
 import Detail from "../Index";
-import {getPackagesById} from "../../../service/PackageService";
+import {deletePackage, getPackagesById} from "../../../service/PackageService";
 import {ROUTES} from "../../../constant/Routing/ROUTES";
 import {formatCurrency} from "../../../utils/currency";
 
@@ -34,5 +34,6 @@ const PackageDetails = ({data}) => {
 export default Detail(PackageDetails, {
     getService: getPackagesById,
     back: ROUTES.package.list,
-    edit:ROUTES.package.edit+'/'
+    edit:ROUTES.package.edit+'/',
+    deleteService:deletePackage
 });

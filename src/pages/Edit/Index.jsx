@@ -46,7 +46,7 @@ const Edit = ({formList, reducer, initialState, editService, ...props}) => {
                         )
                     })}
                     <div className={'w-full flex items-end mt-5 gap-3'}>
-                        <Button variants={'gray'}>Update</Button>
+                        <Button variants={'gray'}>Cancel</Button>
                         <Button variants={'info'} type={"submit"}>Update</Button>
                     </div>
                 </form>
