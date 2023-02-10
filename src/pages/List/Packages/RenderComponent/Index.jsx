@@ -12,6 +12,7 @@ const RenderComponent = ({list, ...props}) => {
                 <Button
                     variants={"success"}
                     className={"w-20 items-center"}
+                    onClick={()=>navigate(ROUTES.package.add)}
                 >Add <MdAdd/></Button>
             </div>
             {
@@ -27,7 +28,7 @@ const RenderComponent = ({list, ...props}) => {
                                     </div>
                                 </div>
                                 <div className={'w-1/2 flex justify-end'}>
-                                    <Button className={'w-[100px] font-bold'}
+                                    <Button className={'w-24 font-bold flex justify-center'}
                                             onClick={() => navigate(`${ROUTES.package.byId}/${item.packageId}`)}
                                     >Details</Button>
                                 </div>

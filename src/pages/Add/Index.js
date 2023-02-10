@@ -3,9 +3,8 @@ import useAddProduct from "./UseAddProduct";
 import {Button, Card} from "../../components/Index";
 import useFetchMutation from "../../hook/useFetchMutation";
 import {addPackage} from "../../service/PackageService";
-import {ROUTES} from "../../constant/ROUTES";
-import {Input} from "postcss";
 import FormInput from "../../components/FormInput/Index";
+import {ROUTES} from "../../constant/Routing/ROUTES";
 
 const Add = ({data}) => {
     const {getter, setter} = useAddProduct();
@@ -17,17 +16,15 @@ const Add = ({data}) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const formData = {
-            "packageName" : getter.packageName,
-            "description" : getter.description,
-            "price" : getter.price.toString()
-        };
-
+        // const formData = {
+        //     "packageName" : getter.packageName,
+        //     "description" : getter.description,
+        //     "price" : getter.price.toString()
+        // };
         // formData.append("packageName", getter.packageName);
         // formData.append("description", getter.description);
         // formData.append("price", getter.price);
-
-        fetchMutation(formData);
+        fetchMutation(getter)
     }
     console.log(data)
 
@@ -38,7 +35,7 @@ const Add = ({data}) => {
                     <form
                         className={'w-1/2 flex flex-col'}>
                         {
-                            data.map((item, index) => {
+                            data.map((item) => {
                                 return (
                                         <FormInput
                                             label={item.label}

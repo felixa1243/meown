@@ -1,5 +1,6 @@
 export {default as Login} from './Login/Index'
 export {default as Packages} from './List/Packages/Index'
+export {default as AddPackage} from './Add/Packages/Index'
 export {default as PackageDetail} from './Detail/Packages/Index'
 export {default as EditPackages} from './Edit/Packages/Index'
 export {default as UserDetail} from './Detail/Users/Index'

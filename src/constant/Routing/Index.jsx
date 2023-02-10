@@ -1,6 +1,7 @@
 import {Route, Routes, useLocation} from "react-router-dom";
 import {ROUTES} from "./ROUTES";
 import {
+    AddPackage,
     EditPackages,
     EditUser,
     Home,
@@ -32,6 +33,9 @@ const Routing = () => {
                     />
                     <Route path={`${ROUTES.package.byId}/:id`}
                            element={<PackageDetail/>}/>
+                    <Route path={ROUTES.package.add}
+                           element={<AddPackage/>}
+                    />
                     <Route path={`${ROUTES.package.edit}/:id`}
                            element={<EditPackages/>}/>
                     <Route path={`${ROUTES.user.byId}/:id`}
