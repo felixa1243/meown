@@ -2,6 +2,7 @@ import './assets/style.css'
 import {Route, Routes} from "react-router-dom";
 import {ROUTES} from "./constant/ROUTES";
 import {
+    AddProduct,
     Home,
     Login,
     NotFound,
@@ -31,6 +32,9 @@ function App() {
                            element={<User/>}
                            index={true}
                     />
+
+                    <Route path={ROUTES.package.add} element={<AddProduct/>}/>
+
                     <Route path={`${ROUTES.user.byId}/:id`} element={<UserDetail/>}/>
 
                     <Route path={ROUTES.transaction.list}

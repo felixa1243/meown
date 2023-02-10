@@ -15,6 +15,6 @@ const useFetchMutation = (mutation, onSuccess) => {
             setLoading(false)
         }
     }
-    return [error, loading, fetchMutation]
+    return {error, loading, fetchMutation}
 }
 export default useFetchMutation

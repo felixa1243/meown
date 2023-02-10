@@ -1,6 +1,6 @@
 import Detail from "../Index";
 import {getPackagesById} from "../../../service/PackageService";
-import {Card} from "../../../components/Index";
+import {Button, Card} from "../../../components/Index";
 import {ROUTES} from "../../../constant/ROUTES";
 
 const PackageDetails = ({data}) => {

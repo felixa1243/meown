@@ -1,5 +1,6 @@
 export {default as Login} from './Login/Index'
 export {default as Products} from './List/Products/Index'
+export {default as AddProduct} from "./Add/Packages/Index";
 export {default as ProductDetail} from './Detail/Packages/Index'
 export {default as UserDetail} from './Detail/Users/Index'
 export {default as OrderDetail} from './Detail/Orders/Index'
