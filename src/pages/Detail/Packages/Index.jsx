@@ -12,6 +12,7 @@ const PackageDetails = ({data}) => {
                     <p className={'font-bold'}>Package Name</p>
                     <p className={'font-bold'}>Description</p>
                     <p className={'font-bold'}>Price</p>
+                    <p className={'font-bold'}>Icon</p>
                 </div>
                 <div className={'w-1/2 flex flex-col'}>
                     {

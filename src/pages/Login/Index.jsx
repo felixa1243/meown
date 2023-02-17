@@ -19,7 +19,8 @@ const Login = () => {
     const navigate = useNavigate()
     const [authFail, loginLoading, loginMutation] = useFetchMutation(login, (data) => {
         const {data: datas} = data
-        if (datas.data.role !== "administrator") {
+        console.log(datas)
+        if (datas.data.role !== "ADMIN") {
             setError(true)
         } else {
             navigate(ROUTES.package.list)
