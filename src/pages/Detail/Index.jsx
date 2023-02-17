@@ -17,7 +17,7 @@ const Detail = (RenderComponent, opts) => {
         const handleDelete = () =>{
             const confirmation = window.confirm("Are sure about that? you can't undo this action")
             if (confirmation){
-                deleteItem(opts.deleteService(id))
+                deleteItem(id)
             }
         }
         return (

@@ -9,11 +9,13 @@ import {ROUTES} from "../../constant/Routing/ROUTES";
 const Add = ({data}) => {
     const {getter, setter} = useAddProduct();
     const navigate = useNavigate();
-    const {fetchMutation} = useFetchMutation(
+    const [addError, , fetchMutation] = useFetchMutation(
         addPackage,
         () => navigate(ROUTES.package.list)
     );
-
+    if (addError){
+        console.log(addError.message)
+    }
     const submitHandler = (e) => {
         e.preventDefault();
         // const formData = {
@@ -24,9 +26,13 @@ const Add = ({data}) => {
         // formData.append("packageName", getter.packageName);
         // formData.append("description", getter.description);
         // formData.append("price", getter.price);
+        // fetchMutation(addPackage({
+        //     packageName: getter.packageName,
+        //     description: getter.description,
+        //     price: parseInt(getter.price)
+        // }))
         fetchMutation(getter)
     }
-    console.log(data)
 
     return (
         <Card className={'w-full rounded-lg p-5 font-bold font-poppins'}>
@@ -37,14 +43,14 @@ const Add = ({data}) => {
                         {
                             data.map((item) => {
                                 return (
-                                        <FormInput
-                                            label={item.label}
-                                            type={item.type}
-                                            value={getter[item.id]}
-                                            onChange={setter[item.id]}
-                                            placeholder={item.placeholder}
-                                            key={item.id}
-                                        />
+                                    <FormInput
+                                        label={item.label}
+                                        type={item.type}
+                                        // value={getter[item.id]}
+                                        onChange={setter[item.id]}
+                                        placeholder={item.placeholder}
+                                        key={item.id}
+                                    />
                                 )
                             })
                         }
@@ -56,4 +62,4 @@ const Add = ({data}) => {
     )
 }
 
-    export default Add;
+export default Add;

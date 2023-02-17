@@ -15,7 +15,8 @@ const RenderComponent = ({list,...props}) => {
                                 <div className={'w-1/2'}>
                                     <div className={'flex flex-col gap-2'}>
                                         <p className={"text-brand-primary font-bold font-poppins text-lg"}>{item.transactionId}</p>
-                                        <p className={'text-xl font-bold'}>{item.package.packageName}</p>
+                                        <p className={'text-xl font-bold'}>{item.packet.packageName}</p>
+                                        <p className={'text-gray-400'}>{item.status}</p>
                                     </div>
                                 </div>
                                 <div className={'w-1/2 flex justify-end'}>

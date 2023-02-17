@@ -1,4 +1,4 @@
-import {Button, Card} from "../../../../components/Index";
+import {Badge, Button, Card} from "../../../../components/Index";
 import {ROUTES} from "../../../../constant/Routing/ROUTES";
 import {useNavigate} from "react-router-dom";
 
@@ -15,8 +15,14 @@ const RenderComponent = ({list,...props}) => {
                                 <div className={'w-1/2'}>
                                     <div className={'flex flex-col gap-2'}>
                                         <p className={"text-brand-primary font-bold font-poppins text-lg"}>{item.userId}</p>
-                                        <p className={'text-xl font-bold'}>{item.userName}</p>
-                                        <p className={'text-brand-primary font-bold'}>{item.address.city}</p>
+                                        <div className={"flex gap-2"}>
+                                            <p className={'text-xl font-bold'}>{item.userName}</p>
+                                            {
+                                                item.role === "ADMIN" &&
+                                                <Badge className={"text-white"}>Admin</Badge>
+                                            }
+                                        </div>
+                                        <p className={'text-brand-primary font-bold'}>{item.address}</p>
                                     </div>
                                 </div>
                                 <div className={'w-1/2 flex justify-end'}>
