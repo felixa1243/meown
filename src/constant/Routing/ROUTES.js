@@ -1,7 +1,7 @@
 export const ROUTES = {
-    home:"/",
+    home: "/",
     auth: {
-        root:"/auth",
+        root: "/auth",
         login: "/auth/login"
     },
     package: {
@@ -23,6 +23,8 @@ export const ROUTES = {
     transaction: {
         list: "/transactions",
         byId: "/transactions",
-        edit:"/edit/transactions"
-    }
+        edit: "/edit/transactions"
+    },
+    incomingOrder: "/incoming",
+    dashboard: "/dashboard"
 }

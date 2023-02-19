@@ -5,11 +5,16 @@
     font-family: "Poppins";
     src: url("./fonts/Poppins/Poppins-Regular.ttf");
 }
+
 @layer utilities {
     .text-danger {
         @apply text-rose-500
     }
+
     .bg-danger {
         @apply bg-rose-500
     }
+}
+body {
+    @apply bg-brand-secondary;
 }

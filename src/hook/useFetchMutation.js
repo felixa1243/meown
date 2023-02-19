@@ -4,10 +4,10 @@ const useFetchMutation = (mutation, onSuccess) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    const fetchMutation = async (data) => {
+    const fetchMutation = async (data, params) => {
         try {
             setLoading(true)
-            const result = await mutation(data)
+            const result = params ? await mutation(params, data) : await mutation(data)
             onSuccess?.(result)
         } catch (e) {
             setError(e)

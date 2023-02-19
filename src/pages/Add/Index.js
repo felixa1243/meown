@@ -3,8 +3,8 @@ import useAddProduct from "./UseAddProduct";
 import {Button, Card} from "../../components/Index";
 import useFetchMutation from "../../hook/useFetchMutation";
 import {addPackage} from "../../service/PackageService";
-import FormInput from "../../components/FormInput/Index";
 import {ROUTES} from "../../constant/Routing/ROUTES";
+import InputGroup from "../../components/InputGroup/Index";
 
 const Add = ({data}) => {
     const {getter, setter} = useAddProduct();
@@ -13,39 +13,37 @@ const Add = ({data}) => {
         addPackage,
         () => navigate(ROUTES.package.list)
     );
-    if (addError){
-        console.log(addError.message)
-    }
     const submitHandler = (e) => {
         e.preventDefault();
         fetchMutation(getter)
     }
 
     return (
-        <Card className={'w-full rounded-lg p-5 font-bold font-poppins'}>
-            <div className={'flex'}>
-                <div className={'w-1/2 flex flex-col'}>
+        <div className={'w-full bg-red-500 p-5 font-bold font-poppins flex justify-center'}>
+            <Card className={'w-1/2 mt-8 flex rounded-lg p-6 flex'}>
+                <div className={'w-full flex flex-col'}>
                     <form
-                        className={'w-1/2 flex flex-col'}>
+                        className={'w-full flex flex-col items-start'}>
                         {
                             data.map((item) => {
                                 return (
-                                    <FormInput
+                                    <InputGroup
                                         label={item.label}
                                         type={item.type}
-                                        // value={getter[item.id]}
                                         onChange={setter[item.id]}
                                         placeholder={item.placeholder}
                                         key={item.id}
+                                        className={'w-full mb-3'}
                                     />
                                 )
                             })
                         }
-                        <Button onClick={submitHandler}> Add Package </Button>
+                        {addError && (<p className={'text-danger'}>{addError.response.data.message.replace(/\[|\]/g," ")}</p>)}
+                        <Button onClick={submitHandler} className={'mt-5'}> Add Package </Button>
                     </form>
                 </div>
-            </div>
-        </Card>
+            </Card>
+        </div>
     )
 }
 

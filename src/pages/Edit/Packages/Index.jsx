@@ -6,14 +6,14 @@ import {ROUTES} from "../../../constant/Routing/ROUTES";
 
 const EditPackage = () => {
     const formInputs = [{
-            label: 'Package Name',
-            type: 'text',
-            action:ACTIONS_TYPE.packages.CHANGE_NAME
-        },
+        label: 'Package Name',
+        type: 'text',
+        action: ACTIONS_TYPE.packages.CHANGE_NAME
+    },
         {
             label: 'Description',
             type: 'textarea',
-            action:ACTIONS_TYPE.packages.CHANGE_DESCRIPTION
+            action: ACTIONS_TYPE.packages.CHANGE_DESCRIPTION
         },
         {
             label: 'Price',

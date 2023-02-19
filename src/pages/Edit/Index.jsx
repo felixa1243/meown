@@ -14,12 +14,13 @@ const Edit = ({formList, reducer, initialState, editService, ...props}) => {
     })
     const handleSubmit = e => {
         e.preventDefault()
-        edit(editService(id, formData))
+        console.log(formData)
+        edit(formData, id)
     }
     return (
         <div className={'w-full flex justify-center pt-5 font-poppins flex-col justify-center'}>
             <div className={'flex justify-between px-3 py-2'}>
-                <Card className={'flex items-center gap-2 px-3 py-2 rounded-lg hover:cursor-pointer'} onClick={()=>{
+                <Card className={'flex items-center gap-2 px-3 py-2 rounded-lg hover:cursor-pointer'} onClick={() => {
                     navigate(props.backPath)
                 }}>
                     <TiArrowBack size={20}/>
@@ -40,7 +41,9 @@ const Edit = ({formList, reducer, initialState, editService, ...props}) => {
                             <InputGroup
                                 type={item.type}
                                 label={item.label}
-                                onChange={e => dispatch({type: item.action, payload: e.target.value})}
+                                onChange={e => {
+                                    dispatch({type: item.action, payload: e.target.value})
+                                }}
                                 key={item.label}
                             />
                         )

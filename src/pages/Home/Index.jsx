@@ -8,7 +8,7 @@ const Home = () => {
         )
     }
     return (
-        <Navigate to={ROUTES.package.list}/>
+        <Navigate to={ROUTES.dashboard}/>
     )
 }
 export default Home

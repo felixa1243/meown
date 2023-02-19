@@ -19,12 +19,11 @@ const Login = () => {
     const navigate = useNavigate()
     const [authFail, loginLoading, loginMutation] = useFetchMutation(login, (data) => {
         const {data: datas} = data
-        console.log(datas)
         if (datas.data.role !== "ADMIN") {
             setError(true)
         } else {
-            navigate(ROUTES.package.list)
-            setToken(datas.token)
+            navigate(ROUTES.dashboard)
+            setToken(datas?.token)
             setUser(JSON.stringify(datas.data))
         }
     })

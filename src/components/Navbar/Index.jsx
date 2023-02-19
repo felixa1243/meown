@@ -3,16 +3,24 @@ import {ROUTES} from "../../constant/Routing/ROUTES";
 import logo from '../../assets/image/logo.svg'
 
 const Navbar = (props) => {
-    const links = [{
-        link: ROUTES.package.list,
-        text: 'Packages'
-    }, {
-        link: ROUTES.user.list,
-        text: 'User'
-    }, {
-        link: ROUTES.transaction.list,
-        text: 'Order'
-    }]
+    const links = [
+        {
+            link: ROUTES.dashboard,
+            text: 'Dashboard'
+        },
+        {
+            link: ROUTES.package.list,
+            text: 'Packages'
+        },
+        {
+            link: ROUTES.user.list,
+            text: 'User'
+        },
+        {
+            link: ROUTES.transaction.list,
+            text: 'Transactions'
+        }
+    ]
     const location = useLocation()
     const currentPath = location.pathname.split("/")[1]
     return (<div className={'w-full bg-white flex h-[90px] items-center justify-between px-5 py-2'}>

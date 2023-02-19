@@ -13,7 +13,8 @@ import {
     Packages,
     ProtectedRoute,
     User,
-    UserDetail
+    UserDetail,
+    Dashboard
 } from "../../pages";
 import {AnimatePresence} from "framer-motion";
 
@@ -26,7 +27,6 @@ const Routing = () => {
                 <Route element={<ProtectedRoute/>}>
                     <Route path={ROUTES.package.list}
                            element={<Packages/>}
-                           index={true}
                     />
                     <Route path={ROUTES.user.list}
                            element={<User/>}
@@ -48,7 +48,10 @@ const Routing = () => {
                     />
                     <Route path={`${ROUTES.transaction.byId}/:id`}
                            element={<OrderDetail/>}/>
-
+                    <Route path={ROUTES.dashboard}
+                           element={<Dashboard/>}
+                           index={true}
+                    />
                 </Route>
                 <Route path={ROUTES.auth.login} element={<Login/>} index={true}/>
                 <Route path={"*"} element={<NotFound/>}/>

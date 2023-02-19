@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(
 )
 axiosInstance.interceptors.request.use((config) => config,(error) => {
     const respErr = error?.response?.data
-    if (respErr.code === "X06") {
+    if (respErr) {
         removeToken();
     }
 });
